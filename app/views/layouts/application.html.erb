@@ -6,18 +6,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <% if flash [:notice] %>
-     <div class="notification is-info">
+    <% if flash[:notice] %>
+      <div class="notification is-info">
         <p class="notice"><%= notice %></p>
-     </div>
+      </div>
     <% end %>
     
-    <% if flash [:alert] %>
+    <% if flash[:alert] %>
       <div class="notification is-info">
          <p class="alert"><%= alert %></p>
       </div>
