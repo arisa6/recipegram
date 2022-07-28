@@ -1,2 +1,41 @@
-<h1>Recipes#edit</h1>
-<p>Find me in app/views/recipes/edit.html.erb</p>
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        レシピ編集
+      </h1>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+          <%= form_with model: @recipe do |f| %>
+          <table class="table table-borderless">
+           <div class="field">
+            <tr><td><%= f.label :title, "レシピ名", class: "label"%></td></tr>
+            <td><%= f.text_field :title, class: "input" %></td>
+           </div>
+           <div class="field">
+            <tr><td><%= f.label :body, "作り方", class: "label" %></td></tr>
+            <td><%= f.text_area :body, class: "input" %></td>
+           </div>
+           <div class="field">
+            <tr><td><%= f.label :image, "写真", class: "label" %></td></tr>
+            <td><%= f.file_field :image, class: "input", accept: "image/*" %></td>
+           </div>
+          </table>
+            <%= f.submit "更新", class: "button is-success" %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+

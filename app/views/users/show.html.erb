@@ -53,4 +53,62 @@
   </div>
 </section>
 
-レシピ情報は後ほど
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+     <% @user.recipes.each do |recipe| %>
+      <div class="column is-4">
+          <div class="card">
+            <div class="card-image">
+              
+              <figure class="image is-4by3">
+                <%= link_to recipe_path(recipe) do %>
+                  <%= image_tag recipe.image, size: "200x200" %>
+                <% end %>
+              </figure>
+              
+            </div>
+            
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  
+                  <%= link_to recipe_path(recipe), class: "panel-block" do %> <!--do/end　仕組みを理解する-->
+                    <span class="panel-icon">
+                      <i class="fas fa-book" aria-hidden="true"></i>
+                    </span>
+                    このレシピを見る
+                  <% end %>
+               
+               <!--↑投稿者以外はレシピを見るのみ表示　　↓投稿者なら編集／削除を表示-->
+                  
+                  <% if @user.id == current_user.id %>
+                    <%= link_to edit_recipe_path(recipe), class: "panel-block" do %>
+                      <span class="panel-icon">
+                        <i class="fas fa-edit"></i>
+                      </span>
+                      このレシピを編集する
+                    <% end %>
+                    
+                     <%= link_to recipe_path(recipe), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>
+                      <span class="panel-icon">
+                        <i class="fas fa-trash"></i>
+                      </span>
+                      このレシピを削除する
+                    <% end %>
+                    
+                  <% end %>
+                </div>
+              </div>
+              
+               <div class="content">
+                 <time><%= recipe.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+               </div>
+               
+            </div>
+          </div>
+      </div>
+<% end %>
+    </div>
+  </div>
+</section>

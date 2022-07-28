@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   def index
+    @recipes = Recipe.all
   end
 
   def show
@@ -18,6 +19,19 @@ class RecipesController < ApplicationController
   end
     
   def edit
+    @recipe = Recipe.find(params[:id])
+  end
+  
+  def update
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(recipe_params) #(recipe_params)はどのカラムをupdateするのかを許可
+    redirect_to recipe_path(@recipe)
+  end
+  
+  def destroy
+    recipe = Recipe.find(params[:id])
+    recipe.destroy
+    redirect_to user_path(recipe.user)
   end
   
   private
