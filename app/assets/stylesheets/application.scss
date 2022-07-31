@@ -20,3 +20,10 @@
 .notification:not(:last-child){
  margin-bottom: 0;
 }
+
+.main-image {
+	height: 900px;
+	background-image: url(party.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
