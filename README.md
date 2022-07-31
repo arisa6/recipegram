@@ -22,3 +22,21 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+* 
+# <Recipegram>
+
+## サイト概要
+
+< Youtube参考>
+
+### ターゲットユーザ
+<料理が好きな人>
+<料理を作りたい人>
+
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+
